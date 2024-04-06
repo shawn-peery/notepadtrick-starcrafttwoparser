@@ -1,0 +1,102 @@
+Struct: {
+  "controlPlayerId": 1,
+  "creatorAbilityName": "",
+  "creatorUnitTagIndex": 200,
+  "creatorUnitTagRecycle": 1,
+  "evtTypeName": "UnitBorn",
+  "id": 1,
+  "loop": 266,
+  "unitTagIndex": 230,
+  "unitTagRecycle": 1,
+  "unitTypeName": "Larva",
+  "upkeepPlayerId": 1,
+  "x": 61,
+  "y": 67
+}
+EvtType: &{1 UnitBorn 199}
+In-game time: 16.625 seconds
+Struct: {
+  "controlPlayerId": 2,
+  "creatorAbilityName": "NexusTrain",
+  "creatorUnitTagIndex": 217,
+  "creatorUnitTagRecycle": 1,
+  "evtTypeName": "UnitBorn",
+  "id": 1,
+  "loop": 290,
+  "unitTagIndex": 231,
+  "unitTagRecycle": 1,
+  "unitTypeName": "Probe",
+  "upkeepPlayerId": 2,
+  "x": 141,
+  "y": 177
+}
+EvtType: &{1 UnitBorn 199}
+In-game time: 18.125 seconds
+Struct: {
+  "controlPlayerId": 1,
+  "creatorAbilityName": "LarvaTrain",
+  "creatorUnitTagIndex": 201,
+  "creatorUnitTagRecycle": 1,
+  "evtTypeName": "UnitBorn",
+  "id": 1,
+  "loop": 298,
+  "unitTagIndex": 232,
+  "unitTagRecycle": 1,
+  "unitTypeName": "Drone",
+  "upkeepPlayerId": 1,
+  "x": 61,
+  "y": 67
+}
+EvtType: &{1 UnitBorn 199}
+In-game time: 18.625 seconds
+Struct: {
+  "controlPlayerId": 1,
+  "creatorAbilityName": "",
+  "creatorUnitTagIndex": 200,
+  "creatorUnitTagRecycle": 1,
+  "evtTypeName": "UnitBorn",
+  "id": 1,
+  "loop": 519,
+  "unitTagIndex": 233,
+  "unitTagRecycle": 1,
+  "unitTypeName": "Larva",
+  "upkeepPlayerId": 1,
+  "x": 61,
+  "y": 67
+}
+EvtType: &{1 UnitBorn 199}
+In-game time: 32.437 seconds
+Struct: {
+  "controlPlayerId": 2,
+  "creatorAbilityName": "NexusTrain",
+  "creatorUnitTagIndex": 217,
+  "creatorUnitTagRecycle": 1,
+  "evtTypeName": "UnitBorn",
+  "id": 1,
+  "loop": 561,
+  "unitTagIndex": 234,
+  "unitTagRecycle": 1,
+  "unitTypeName": "Probe",
+  "upkeepPlayerId": 2,
+  "x": 141,
+  "y": 177
+}
+EvtType: &{1 UnitBorn 199}
+In-game time: 35.062 seconds
+Struct: {
+  "controlPlayerId": 1,
+  "creatorAbilityName": "LarvaTrain",
+  "creatorUnitTagIndex": 202,
+  "creatorUnitTagRecycle": 1,
+  "evtTypeName": "UnitBorn",
+  "id": 1,
+  "loop": 679,
+  "unitTagIndex": 235,
+  "unitTagRecycle": 1,
+  "unitTypeName": "Overlord",
+  "upkeepPlayerId": 1,
+  "x": 62,
+  "y": 67
+}
+EvtType: &{1 UnitBorn 199}
+In-game time: 42.437 seconds

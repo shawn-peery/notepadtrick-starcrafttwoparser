@@ -44,8 +44,8 @@ func main() {
 	fastString := "Fast"
 	fastModifier := 30
 
-	// fasterString := "Faster"
-	// fasterModifier := 26
+	fasterString := "Faster"
+	fasterModifier := 26
 
 	
 
@@ -55,7 +55,9 @@ func main() {
 
 	// r, err := rep.NewFromFile("./TestNormalSpeed.SC2Replay")
 
-	r, err := rep.NewFromFile("./TestFastSpeed.SC2Replay")
+	// r, err := rep.NewFromFile("./TestFastSpeed.SC2Replay")
+
+	r, err := rep.NewFromFile("./TestingFasterSpeed.SC2Replay")
 
 
 	if err != nil {
@@ -145,8 +147,11 @@ func main() {
 
 	modification:= 0
 
-	if r.Details.GameSpeed().Name == fastString {
-		modification = fastModifier
+	switch  r.Details.GameSpeed().Name {
+		case fastString: 
+			modification = fastModifier
+		case fasterString:
+			modification = fasterModifier
 	}
 
 	for evtIndex := range uniqueTrackerEvents {

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"reflect"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/icza/s2prot"
@@ -89,13 +90,38 @@ func main() {
 	 uniqueTrackerEvents := []s2prot.Event{} ;
 
 
+
+
+
 	for _, player := range r.Details.Players() {
-		workerCounts[player.Toon.String()] = 0;
-		supplyCounts[player.Toon.String()] = 0;
+		var id = player.Toon.ID();
+		fmt.Printf("test %d", id);
+
+		var stringversion = strconv.FormatInt(player.Toon.ID(), 10);
+
+
+		workerCounts[stringversion] = 0;
+		supplyCounts[stringversion] = 0;
+
+		// printStructProperties(player)
+
+	}
+
+	for key := range workerCounts {
+		fmt.Printf("PlayerId: %s. ", key)
 	}
 
 
+
 	for _, evt := range r.TrackerEvts.Evts {
+
+
+
+		
+
+
+
+		// var playerRaw = evt.Struct.Value("unitTypeName")
 
 
 		var unitTypeNameRaw = evt.Struct.Value("unitTypeName")
@@ -105,9 +131,14 @@ func main() {
 			if s, ok := unitTypeNameRaw.(string); ok {
 				// fmt.Println("The value stored in x is:", s)
 
-				if s != "Overlord" {
+				if s != "Drone" && s != "SCV" && s != "Probe" {
 					continue;
 				}
+
+
+				// if s != "Overlord"  {
+				// 	continue;
+				// }
 
 			} else {
 				// fmt.Println("The value stored in x is not a string")
@@ -164,8 +195,16 @@ func main() {
 		modification = fasterModifier
 	}
 
-	for evtIndex := range uniqueTrackerEvents {
-		evt:= uniqueTrackerEvents[evtIndex];
+	for eventIndex := range uniqueTrackerEvents {
+
+		var event = uniqueTrackerEvents[eventIndex];
+
+
+		var controlPlayerId = event.Struct.Int("controlPlayerId")
+
+		var playerDescription = r.TrackerEvts.ToonPlayerDescMap[toonId]
+		printStructProperties(playerDescription)
+		evt:= uniqueTrackerEvents[toonId];
 
 		//  fmt.Printf("\tEvtTypeName: %-20s\n", evt.EvtType.Name);
 

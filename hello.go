@@ -23,10 +23,39 @@ func printStructProperties(s interface{}) {
     }
 }
 
+type UnitTypeData interface {
+	Data() string
+}
+
+
+
+
 func main() {
+
+	// slowerString := "Slower"
+	// slowerModifer := 60
+
+	// slowString := "Slow"
+	// slowModifier := 45
+
+	// normalString := "Normal"
+	normalModifier := 36
+
+	fastString := "Fast"
+	fastModifier := 30
+
+	// fasterString := "Faster"
+	// fasterModifier := 26
+
+	
+
+
+
 	// r, err := rep.NewFromFile("./Oceanborn LE.SC2Replay")
 
-	r, err := rep.NewFromFile("./TestNormalSpeed.SC2Replay")
+	// r, err := rep.NewFromFile("./TestNormalSpeed.SC2Replay")
+
+	r, err := rep.NewFromFile("./TestFastSpeed.SC2Replay")
 
 
 	if err != nil {
@@ -35,10 +64,15 @@ func main() {
 	}
 
 
+
 	// for _, p := range r.Details.Players() {
 	// 	fmt.Printf("\tName: %-20s, Race: %c, Team: %d, Toon: %s Result: %v\n",
 	// 		p.Name, p.Race().Letter, p.TeamID()+1, p.Toon, p.Result())
 	// }
+
+	fmt.Printf("Game Speed: %s\n", r.Details.GameSpeed().Name)
+
+	
 
 	// // Initialize variables to track worker count and supply
 	workerCounts := make(map[string]int) // Map of player ID to worker count
@@ -58,7 +92,27 @@ func main() {
 	for _, evt := range r.TrackerEvts.Evts {
 
 
-		if (strings.ToLower(evt.EvtType.Name) != "unitborn") {
+		var unitTypeNameRaw = evt.Struct.Value("unitTypeName")
+
+		if unitTypeNameRaw != nil {
+
+			if s, ok := unitTypeNameRaw.(string); ok {
+				// fmt.Println("The value stored in x is:", s)
+
+				if s != "Overlord" {
+					continue;
+				}
+
+			} else {
+				// fmt.Println("The value stored in x is not a string")
+			}
+
+		}
+
+
+
+// || unitTypeName != "Overlord"
+		if (strings.ToLower(evt.EvtType.Name) != "unitborn" ) {
 			// fmt.Printf("%s", lower)
 			continue;
 
@@ -89,6 +143,12 @@ func main() {
 		return uniqueTrackerEvents[i].Loop() < uniqueTrackerEvents[j].Loop()
 	})
 
+	modification:= 0
+
+	if r.Details.GameSpeed().Name == fastString {
+		modification = fastModifier
+	}
+
 	for evtIndex := range uniqueTrackerEvents {
 		evt:= uniqueTrackerEvents[evtIndex];
 
@@ -100,7 +160,23 @@ func main() {
 		realTimeValue:= float64((( evt.Loop() * 125 )) / 2)/1000
 		// inGameTime:= realTimeValue  * (36/26)
 
-		inGameTime:= realTimeValue
+		inGameTime:= realTimeValue * (float64(modification)/ float64(normalModifier))
+
+		var unitTypeNameRaw = evt.Struct.Value("unitTypeName")
+		var unitTypeName string;
+
+		if unitTypeNameRaw != nil {
+
+			if s, ok := unitTypeNameRaw.(string); ok {
+				// fmt.Println("The value stored in x is:", s)
+
+				unitTypeName = s
+			} else {
+				// fmt.Println("The value stored in x is not a string")
+			}
+
+			fmt.Printf("Unit Type Name: %s\n" , unitTypeName)
+		}
 
 
 		printStructProperties(evt);

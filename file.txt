@@ -1,19 +1,19 @@
-Game Speed: Faster
+Game Speed: Slower
 Unit Type Name: Overlord
 Struct: {
   "controlPlayerId": 1,
   "creatorAbilityName": "LarvaTrain",
-  "creatorUnitTagIndex": 201,
+  "creatorUnitTagIndex": 181,
   "creatorUnitTagRecycle": 1,
   "evtTypeName": "UnitBorn",
   "id": 1,
-  "loop": 1342,
-  "unitTagIndex": 237,
+  "loop": 636,
+  "unitTagIndex": 214,
   "unitTagRecycle": 1,
   "unitTypeName": "Overlord",
   "upkeepPlayerId": 1,
-  "x": 61,
-  "y": 67
+  "x": 156,
+  "y": 42
 }
 EvtType: &{1 UnitBorn 199}
-In-game time: 60.576388888888886 seconds
+In-game time: 66.25 seconds

@@ -32,13 +32,13 @@ type UnitTypeData interface {
 
 func main() {
 
-	// slowerString := "Slower"
-	// slowerModifer := 60
+	slowerString := "Slower"
+	slowerModifer := 60
 
-	// slowString := "Slow"
-	// slowModifier := 45
+	slowString := "Slow"
+	slowModifier := 45
 
-	// normalString := "Normal"
+	normalString := "Normal"
 	normalModifier := 36
 
 	fastString := "Fast"
@@ -57,7 +57,11 @@ func main() {
 
 	// r, err := rep.NewFromFile("./TestFastSpeed.SC2Replay")
 
-	r, err := rep.NewFromFile("./TestingFasterSpeed.SC2Replay")
+	// r, err := rep.NewFromFile("./TestingFasterSpeed.SC2Replay")
+
+
+	r, err := rep.NewFromFile("./TestingSlower.SC2Replay")
+
 
 
 	if err != nil {
@@ -148,10 +152,16 @@ func main() {
 	modification:= 0
 
 	switch  r.Details.GameSpeed().Name {
-		case fastString: 
-			modification = fastModifier
-		case fasterString:
-			modification = fasterModifier
+	case slowerString:
+		modification = slowerModifer
+	case slowString:
+		modification = slowModifier
+	case normalString:
+		modification = normalModifier
+	case fastString: 
+		modification = fastModifier
+	case fasterString:
+		modification = fasterModifier
 	}
 
 	for evtIndex := range uniqueTrackerEvents {
@@ -164,6 +174,8 @@ func main() {
 		//  inGameTime := float64(evt.Loop()* 125 ) / float64(2)
 		realTimeValue:= float64((( evt.Loop() * 125 )) / 2)/1000
 		// inGameTime:= realTimeValue  * (36/26)
+
+		
 
 		inGameTime:= realTimeValue * (float64(modification)/ float64(normalModifier))
 

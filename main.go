@@ -33,20 +33,6 @@ type UnitTypeData interface {
 
 func main() {
 
-	slowerString := "Slower"
-	slowerModifer := 60
-
-	slowString := "Slow"
-	slowModifier := 45
-
-	normalString := "Normal"
-	normalModifier := 36
-
-	fastString := "Fast"
-	fastModifier := 30
-
-	fasterString := "Faster"
-	fasterModifier := 26
 
 	
 
@@ -183,7 +169,7 @@ func main() {
 	modification:= 0
 
 	switch  r.Details.GameSpeed().Name {
-	case slowerString:
+	case SlowerString:
 		modification = slowerModifer
 	case slowString:
 		modification = slowModifier
